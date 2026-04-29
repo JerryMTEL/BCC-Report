@@ -69,9 +69,7 @@ section {
   min-width: 100vw;
   width: 100vw;
   flex-shrink: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  display: block;
   padding: 56px 24px 100px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -96,7 +94,10 @@ section::-webkit-scrollbar-thumb {
 body.is-snapping section { overflow-y: hidden; }
 
 .hero-section {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-bottom: 56px;
 }
 
@@ -1073,6 +1074,14 @@ h2 { font-size: clamp(2rem, 4.8vw, 3.9rem); }
 /* ── Overview table tooltip ── */
 .impr-table-wrap {
   position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.perf-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 .impr-table tr[data-desc] { cursor: default; }
 .impr-table tr[data-desc].row-active td { background: rgba(30,45,130,0.06); }
@@ -1144,7 +1153,6 @@ h2 { font-size: clamp(2rem, 4.8vw, 3.9rem); }
   section { padding-left: 24px; padding-right: 24px; padding-bottom: 140px; }
   .inner { padding: 22px 18px 26px; }
   .cdi-row { grid-template-columns: 1fr 1fr; }
-  .impr-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .impr-table, .perf-table, .final-speed-table { min-width: 500px; }
   .impr-table th, .impr-table td,
   .perf-table th, .perf-table td,
@@ -1805,6 +1813,7 @@ h2 { font-size: clamp(2rem, 4.8vw, 3.9rem); }
       <div class="rule reveal d2"></div>
 
       <div class="reveal d3">
+        <div class="perf-table-wrap">
         <table class="perf-table">
           <thead>
             <tr>
@@ -1841,6 +1850,7 @@ h2 { font-size: clamp(2rem, 4.8vw, 3.9rem); }
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </section>
